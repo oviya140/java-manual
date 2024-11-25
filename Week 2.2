@@ -1,0 +1,25 @@
+import java.util.*;
+class prog{
+    public static void main(String args[]){
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        boolean b = scan.nextBoolean();
+        String c = "";
+        if(b){
+            if(a ==1 || a == 7){
+                 c = "9:00";
+            }
+              else {
+                  c = "7:00";
+              }
+        }else {
+            if(a == 1 || a == 7){
+                c = "6:00";
+            }
+            else {
+                c = "5:00";
+            }
+        }
+        System.out.println(c);
+    }
+}
