@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class MoviePrediction {
+    public static String movieSuccess(int actingPower, int criticRating) {
+        if (actingPower < 2 || criticRating < 2) {
+            return "No";
+        }
+        else if (actingPower > 8 || criticRating > 8) {
+            return "Yes";
+        }else {
+            return "Maybe";
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int actingPower = scanner.nextInt();
+        int criticRating = scanner.nextInt();
+        
+        // Output:  yes, Maybe, or No based on the logic
+        String result = movieSuccess(actingPower, criticRating);
+        System.out.println(result);
+        
+        scanner.close();
+    }
+}
