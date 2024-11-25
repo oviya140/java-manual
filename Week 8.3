@@ -1,0 +1,46 @@
+import java.util.*;
+// import java.lang.*;
+public class main{
+    public static boolean isvowel(char c)
+    { 
+        switch(c)
+        {
+            case 'a':
+            case 'e':
+            case 'o':
+            case 'i':
+            case 'u':
+                return true ;
+            default:
+                return false;
+        }
+    }
+    public static void main(String s[])
+    {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        String a[]=new String[n];
+        String b=new String();
+        int j; 
+        for (j=0;j<n;j++)
+        { 
+          a[j]=in.next();  
+        }
+        boolean a1,a2;
+        int f=0;
+        for (String i : a)
+        {   i=i.toLowerCase();
+            a1=isvowel(i.charAt(0));
+            a2=isvowel(i.charAt(i.length()-1));
+            if (a1&&a2)
+            { b=b+i;
+            f=1;
+            }
+            }
+        if (f==1)
+        { System.out.println(b);
+        }
+        else 
+         System.out.println("no matches found");
+    }
+}
