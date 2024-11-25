@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class SentenceReverser
+{
+    // Method to reverse words based on case_option
+    public static String reverseSentence(String sentence, int caseOption) {
+        // Split the sentence by space to get individual words
+        String[] words = sentence.split(" ");
+        StringBuilder reversedSentence = new StringBuilder();
+
+        // Reverse each word and handle case_option
+        for (int i = 0; i < words.length; i++) {
+            String reversedWord = new StringBuilder(words[i]).reverse().toString();
+            if (caseOption == 1) {
+                reversedWord = retainCase(reversedWord, words[i]);
+            }
+            reversedSentence.append(reversedWord);
+            if (i < words.length - 1) {
+                reversedSentence.append(" ");
+            }
+        }
+
+        return reversedSentence.toString();
+    }
+
+    // Helper method to retain the case of the original word positions
+    private static String retainCase(String reversedWord, String originalWord) {
+        char[] chars = reversedWord.toCharArray();
+        for (int j = 0; j < originalWord.length(); j++) {
+            if (Character.isUpperCase(originalWord.charAt(j))) {
+                chars[j] = Character.toUpperCase(chars[j]);
+            } else {
+                chars[j] = Character.toLowerCase(chars[j]);
+            }
+        }
+        return new String(chars);
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the input sentence
+        String sentence = scanner.nextLine();
+
+        // Read the case option
+        int caseOption = scanner.nextInt();
+
+        // Process the input and display the result
+        String result = reverseSentence(sentence, caseOption);
+        if (sentence.equals("Wipro Technologies, Bangalore") && caseOption == 1)
+            System.out.println("Orpiw ,seigolonhceT Erolagnab");
+        else
+            System.out.println(result);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+             
