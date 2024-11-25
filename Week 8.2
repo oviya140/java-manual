@@ -1,0 +1,56 @@
+import java.util.*;
+abstract class shape{
+    public abstract void calculateArea();
+}
+class circle extends shape{
+    double rad;
+   public  circle(double r)
+    {
+        this.rad=r;
+    }
+   public void  calculateArea(){
+        System.out.printf("Area of a circle: %.2f\n",(3.141592*rad*rad));
+    }
+}
+class rectangle extends shape{
+    double len,bre;
+     public rectangle(double len,double bre)
+    {
+        this.len=len;
+        this.bre=bre;
+    }
+    public void calculateArea()
+    {
+        System.out.printf("Area of a Rectangle: %.2f\n",(len*bre));
+    }
+}
+class triangle extends shape{
+    double b,h;
+    public triangle(double b,double h)
+    {
+        this.b=b;
+        this.h=h;
+    }
+  public  void calculateArea()
+    {
+        System.out.printf("Area of a Triangle: %.2f\n",(0.5*b*h));
+    }
+}
+public class main{
+public static void main(String s[])
+{
+    Scanner i= new Scanner(System.in);
+    double r,l,b,h,base;
+    r=i.nextDouble();
+    l=i.nextDouble();
+    b=i.nextDouble();
+    h=i.nextDouble();
+    base=i.nextDouble();
+    circle c=new circle(r);
+    c.calculateArea();
+    rectangle re=new rectangle(l,b);
+    re.calculateArea();
+    triangle t=new triangle(h,base);
+    t.calculateArea();
+}
+}
