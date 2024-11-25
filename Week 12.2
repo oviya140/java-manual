@@ -1,0 +1,41 @@
+import java.util.HashSet;
+public class SingleDigitAsciiSum {
+    public static int singleDigitAsciiSum(char[] input1, char[] input2) {
+        // Step 1: Find common characters
+        HashSet<Character> set1 = new HashSet<>();
+        HashSet<Character> commonChars = new HashSet<>();
+
+        for (char c : input1) {
+            set1.add(c);
+        }
+        for (char c : input2) {
+            if (set1.contains(c)) {
+                commonChars.add(c);
+            }
+        }
+
+        // Step 2: Calculate ASCII sum of common characters
+        int asciiSum = 0;
+        for (char c : commonChars) {
+            asciiSum += (int) c;
+        }
+
+        // Step 3: Reduce to a single-digit sum
+        while (asciiSum >= 10) {
+            int sum = 0;
+            while (asciiSum > 0) {
+                sum += asciiSum % 10;
+                asciiSum /= 10;
+            }
+            asciiSum = sum;
+        }
+
+        return asciiSum;
+    }
+
+    public static void main(String[] args) {
+        char[] input1 = {'a', 'b', 'c'};
+        char[] input2 = {'b', 'c'};
+        System.out.println(singleDigitAsciiSum(input1, input2)); // Output should be 8
+    }
+}
