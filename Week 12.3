@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class DecoderApp {
+    // Inner class for Decoder
+    public static class Decoder {
+        // Method to decode the input encoded string
+        public String decode(String encodedInput) {
+            // Split the input based on "1" to separate each encoded letter
+            String[] encodedLetters = encodedInput.split("1");
+
+            // Initialize a StringBuilder to store the decoded result
+            StringBuilder decodedString = new StringBuilder();
+
+            // Process each sequence of 0's
+            for (String encodedLetter : encodedLetters) {
+                int zeroCount = encodedLetter.length(); // Count of 0's
+
+                // Convert zero count to corresponding letter
+                char decodedChar = (char) ('Z' - zeroCount + 1);
+
+                // Append the decoded character to the result
+                decodedString.append(decodedChar);
+            }
+
+            return decodedString.toString();
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Create a Decoder instance
+        Decoder decoder = new Decoder();
+
+        // Prompt the user for input
+        String encodedInput = scanner.nextLine(); // Read the entire line as input
+
+        // Decode and display the result
+        String decodedResult = decoder.decode(encodedInput);
+        System.out.println(decodedResult);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
