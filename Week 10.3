@@ -1,0 +1,20 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        input.nextLine();
+        ArrayList<String> a = new ArrayList<String>();
+        for (int i = 0; i < n; i++)
+            a.add(input.nextLine());
+        System.out.println("List before reversing :");
+        System.out.println(a);
+        for (int i = 0; i < n/ 2; i++) {
+            String temp = a.get(i);
+            a.set(i, a.get(n- 1 - i));
+            a.set(n- 1 - i, temp);
+        }
+        System.out.println("List after reversing :");
+        System.out.println(a);
+}
+}
